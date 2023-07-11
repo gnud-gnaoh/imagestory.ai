@@ -4,6 +4,7 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 from transformers import pipeline
 from dotenv import load_dotenv
+from gpt4all import GPT4All
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg']) 
 
@@ -36,8 +37,10 @@ def index():
 
             # process images
             captioner = pipeline("image-to-text",model="nlpconnect/vit-gpt2-image-captioning")
-            result = captioner(filepath)
-
+            description = captioner(filepath)[0]['generated_text']
+            model = GPT4All('orca-mini-3b.ggmlv3.q4_0.bin')
+            prompt = 'Write a story about ' + description + ':'
+            result = model.generate(prompt, max_tokens=5000,temp=0.7, top_k=40, top_p=0.1, repeat_penalty=1.18, repeat_last_n=64, n_batch=8, n_predict=None, streaming=False)
             return render_template('results.html', filename=filename, result=result)
         else:
             flash('Allowed extensions: png, jpg, jpeg')

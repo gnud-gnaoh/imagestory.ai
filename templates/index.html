@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> storyteller.ai </title>
+    </head>
+    <body>
+        <p> Simple AI. Give it an image, it gives you a story. </p>
+        <button id="btn">Try it</button>
+
+        <script type="text/javascript">
+            document.getElementById("btn").onclick = function () {
+                location.href = "{{ url_for('app') }}";
+            };
+        </script>
+    </body>
+</html>

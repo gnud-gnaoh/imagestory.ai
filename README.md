@@ -1,6 +1,9 @@
 # imagestory.ai
 
-**imagestory.ai** is a simple AI website that writes you story based on a given image.
+**imagestory.ai** is a simple AI website that writes stories based on a given image.
+
+![imagestoryai0](https://github.com/gnud-gnaoh/imagestory.ai/assets/104649178/f84ff703-ac4a-4a72-a3f8-116db99c6cd5)
+![imagestoryai1](https://github.com/gnud-gnaoh/imagestory.ai/assets/104649178/0c5aa444-a7b6-4a8d-ab3f-52f3e1369576)
 
 Uses [Flask](https://flask.palletsprojects.com/en/2.3.x/) for back-end, [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) for front-end.
 
